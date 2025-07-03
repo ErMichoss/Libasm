@@ -1,17 +1,16 @@
 section .text
-global _ft_strlen
+global ft_strlen
 
-_ft_strlen:
+ft_strlen:
     xor rax, rax
 
-    .loop:
-        cmp BYTE [rdi], 0
-        je  .end_loop
-    
-        inc rax
-        inc rdi
+.loop:
+    cmp BYTE [rdi], 0
+    je  .end_loop
 
-        jmp .loop
-    .end_loop
+    inc rax
+    inc rdi
 
+    jmp .loop
+.end_loop:
     ret
