@@ -11,6 +11,7 @@
 extern size_t ft_strlen(const char *str);
 extern int ft_strcmp(char const *s1, const char *s2);
 extern char *ft_strcpy(char *dst, char const *src);
+extern ssize_t ft_write(int fd, const void *buf, size_t count);
 
 
 int main()
@@ -44,6 +45,7 @@ int main()
     STRCMP("", "abcd");
     STRCMP("abcd", "");
     printf("Test OK\n");
+    ft_write(1, "hi\n", 3);
 
     return 0;
 }

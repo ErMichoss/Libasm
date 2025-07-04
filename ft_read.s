@@ -1,7 +1,7 @@
 section .text
 global  ft_read
 
-extern ___error
+extern __errno_location
 
 ft_read:
     mov rax, 0
@@ -14,7 +14,7 @@ ft_read:
 
 .handle_error:
     push    rax
-    call    ___error
+    call    __errno_location wrt ..plt
     pop     rdi
     mov     [rax], rdi
     mov     rax, -1

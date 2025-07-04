@@ -1,7 +1,7 @@
 section .text
 global ft_write
 
-extern ___error
+extern __errno_location
 
 ft_write:
     mov rax, 1
@@ -15,7 +15,7 @@ ft_write:
 
 .handle_error:
     push    rax
-    call    ___error
+    call    __errno_location wrt ..plt ;wrt ..plt Para llamar a cosas desde librerias dinamicas
     pop     rdi
     mov     [rax], rdi
     mov     rax, -1

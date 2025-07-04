@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 NA  = nasm
 NA_FLAGS = -f elf64
 
-SRC_MANDATORY = ft_strlen.s ft_strcpy.s ft_strcmp.s
+SRC_MANDATORY = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
 OBJS_MANDATORY = $(SRC_MANDATORY:.s=.o)
 
 TEST_MANDATORY_C = main.c
