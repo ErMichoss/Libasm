@@ -12,7 +12,7 @@ TEST_MANDATORY_C = main.c
 TEST_MANDATORY_EXEC = my_test_mandatory
 
 RM = rm -f
-AR = ar rcs  # Aquí está el cambio
+AR = ar rcs
 
 %.o: %.s
 	$(NA) $(NA_FLAGS) $< -o $@
@@ -29,11 +29,5 @@ fclean: clean
 	$(RM) $(NAME) $(TEST_MANDATORY_EXEC)
 
 re: fclean all
-
-test: $(NAME) $(TEST_MANDATORY_C)
-	$(GCC) $(CFLAGS) $(TEST_MANDATORY_C) -L. -lasm -o $(TEST_MANDATORY_EXEC)
-	@echo "\n--- Running Mandatory Tests ($(TEST_MANDATORY_EXEC)) ---\n"
-	./$(TEST_MANDATORY_EXEC)
-	@echo "\n--- Mandatory Tests finished ---\n"
 
 .PHONY: all clean fclean re test

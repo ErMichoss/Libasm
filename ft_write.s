@@ -9,15 +9,17 @@ ft_write:
     syscall
 
     cmp rax, 0
-    jc  .handle_error
+    jl  .handle_error
 
     ret
 
 .handle_error:
+    neg     rax
     push    rax
-    call    __errno_location wrt ..plt ;wrt ..plt Para llamar a cosas desde librerias dinamicas
-    pop     rdi
-    mov     [rax], rdi
+    
+    call    __errno_location wrt ..plt
+    pop     rdx
+    mov     [rax], rdx
     mov     rax, -1
 
     ret
